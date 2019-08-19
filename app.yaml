@@ -4,8 +4,12 @@ threadsafe: true
 
 handlers:
 - url: /
-  static_files: index.html
-  upload: index.html
+  static_files: dist/index.html
+  upload: dist/index.html
+
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
 
 - url: /dist
   static_dir: dist/

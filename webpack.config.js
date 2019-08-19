@@ -2,6 +2,7 @@ require("babel-polyfill");
 var path = require('path');
 var webpack = require('webpack');
 const GoogleFontsPlugin = require("google-fonts-webpack-plugin")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     entry: ['babel-polyfill', './src/main.js'],
@@ -77,11 +78,15 @@ module.exports = {
     },
     devtool: '#eval-source-map',
     plugins: [
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+            hash: true,
+        }),
         new GoogleFontsPlugin({
             fonts: [
                 { family: "IBM Plex Mono" }
             ]
-        })
+        }),
     ]
 };
 
