@@ -1,7 +1,6 @@
 require("babel-polyfill");
 var path = require('path');
 var webpack = require('webpack');
-const GoogleFontsPlugin = require("google-fonts-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -84,12 +83,7 @@ module.exports = {
             template: 'index.html',
             filename: path.resolve(__dirname, 'dist/index.html'),
             hash: true,
-        }),
-        new GoogleFontsPlugin({
-            fonts: [
-                { family: "IBM Plex Mono" }
-            ]
-        }),
+        })
     ]
 };
 
