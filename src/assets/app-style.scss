@@ -71,10 +71,12 @@ $height: 100%;
 html {
     box-sizing: border-box;
     height: $height;
+    overflow: hidden;
 }
 
 body {
     height: $height;
+    overflow: hidden;
 }
 
 *, *:before, *:after {
@@ -121,6 +123,7 @@ input {
 .flex-col {
     display: flex;
     flex-flow: column;
+    flex-shrink: 0;
 }
 
 .flex-center {
