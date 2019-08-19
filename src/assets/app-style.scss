@@ -83,6 +83,9 @@ body {
     font-weight: normal;
     font-size: 14px;
     color: $text-input;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 ul {

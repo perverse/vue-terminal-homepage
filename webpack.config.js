@@ -8,7 +8,7 @@ module.exports = {
     entry: ['babel-polyfill', './src/main.js'],
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/dist/',
+        publicPath: '/',
         filename: 'build.js'
     },
     module: {
@@ -71,7 +71,9 @@ module.exports = {
         historyApiFallback: true,
         noInfo: true,
         overlay: true,
-        disableHostCheck: true
+        disableHostCheck: true,
+        contentBase: path.resolve(__dirname, './dist'),
+        publicPath: '/'
     },
     performance: {
         hints: false
@@ -80,6 +82,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'index.html',
+            filename: path.resolve(__dirname, 'dist/index.html'),
             hash: true,
         }),
         new GoogleFontsPlugin({
