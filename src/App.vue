@@ -70,7 +70,7 @@ export default {
             if (command.length && output) this.doOutput(output)
 
             this.userInput = ''
-            this.currentHistoryIndex = this.history.length;
+            this.currentHistoryIndex = this.history.length
         },
 
         async doOutput(output) {
