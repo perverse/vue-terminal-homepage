@@ -79,7 +79,7 @@ module.exports = {
     plugins: [
         new GoogleFontsPlugin({
             fonts: [
-                { family: "Source Sans Pro" }
+                { family: "IBM Plex Mono" }
             ]
         })
     ]

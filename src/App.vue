@@ -64,10 +64,9 @@ export default {
                     storage.save(this.history)
                     break
                 default:
+                    if (command.length && output) this.doOutput(output)
                     break
             }
-            
-            if (command.length && output) this.doOutput(output)
 
             this.userInput = ''
             this.currentHistoryIndex = this.history.length
