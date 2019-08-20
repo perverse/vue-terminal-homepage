@@ -1,5 +1,5 @@
 <template>
-    <li class="entry flex-row-center" v-bind:class="{ 'entry': true, 'flex-row-center': true, 'input-row': entryType === 'input' }">
+    <li class="entry flex-row-center" v-bind:class="{ 'input-row': entryType === 'input' }">
         <span v-show="entryType ==='input'" class="prompt-icon">{{promptText}}&nbsp;$</span>
         <span class="entry-text" v-html="entryText"></span>
     </li>
