@@ -54,9 +54,8 @@ export default {
         onReturnPressed() {
             this.addToHistory(
                 'input',
-                this.userInput.replace(/\t/g, '    ') // replace tabs with spaces
-                              .replace(/ /g, '&nbsp;') // replace spaces with nbsp
-            );
+                this.userInput.replace(/ /g, '&nbsp;') // replace spaces with nbsp
+            )
             let [command, ...args] = this.userInput.trim().split(' ')
 
             let output = cmdParser.parse(command, args)
@@ -108,7 +107,7 @@ export default {
         historyBackwards() {
             for (let index = this.currentHistoryIndex - 1; index >= 0; index--) {
                 if (this.history[index].type == 'input') {
-                    this.userInput = this.history[index].text
+                    this.userInput = this.history[index].text.replace(/&nbsp;/g, ' ')
                     this.currentHistoryIndex = index
 
                     break
@@ -119,7 +118,7 @@ export default {
         historyForwards() {
             for (let index = this.currentHistoryIndex + 1; index < this.history.length - 1; index++) {
                 if (this.history[index].type == 'input') {
-                    this.userInput = this.history[index].text
+                    this.userInput = this.history[index].text.replace(/&nbsp;/g, ' ')
                     this.currentHistoryIndex = index
 
                     break
@@ -141,8 +140,8 @@ export default {
     mounted() {
         this.history = storage.fetch()
 
-        if (!this.history.length) this.doOutput(cmdParser.parse('motd'));
-        this.currentHistoryIndex = this.history.length;
+        if (!this.history.length) this.doOutput(cmdParser.parse('motd'))
+        this.currentHistoryIndex = this.history.length
     },
 
     computed: {
