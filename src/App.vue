@@ -52,7 +52,11 @@ export default {
 
     methods: {
         onReturnPressed() {
-            this.addToHistory('input', this.userInput)
+            this.addToHistory(
+                'input',
+                this.userInput.replace(/\t/g, '    ') // replace tabs with spaces
+                              .replace(/ /g, '&nbsp;') // replace spaces with nbsp
+            );
             let [command, ...args] = this.userInput.trim().split(' ')
 
             let output = cmdParser.parse(command, args)
